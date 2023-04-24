@@ -35,7 +35,7 @@ int main() {
         
     };
 
-    for (int i = 1; i <= 10; i++) {
+    for (int i = 0; i < 10; i++) {
         cout << "Item " << i+1 << ": " << a[i].i_Name << ", " << a[i].i_Price << " rupees per " << a[i].i_Unit << endl;
     }
 
