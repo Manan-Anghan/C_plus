@@ -7,10 +7,7 @@ class Train {
 	
 public:
     int t_Number;
-    string t_Name;
-    string Source;
-    string t_Destination;
-    string t_Time;
+    string t_Name,Source,t_Destination,t_Time,
 
     Train() {}
 
