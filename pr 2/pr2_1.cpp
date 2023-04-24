@@ -1,180 +1,76 @@
-#include<iostream>
-    #include<string.h>
-    using namespace std;
-
-    class bill{
-        private:
-            string item_name;
-            int quantity;
-            double tax;
-            int discount;
-        public:
-            int item_number;
-
-            void password()
-            {
-                char uName[100] , pass[100] , cp[100];
-                int lw=0,dot=0,dg=0,up=0,sc=0,sp=0,un=0,i,len,n,m;
-
-                cout << "Enter Your Username : ";
-                cin >> uName;
-
-                for(i=0 ; i<strlen(uName) ; i++)
-                {
-                    if(uName[i]>='A' && uName[i]<='Z')
-                    {
-                        up++;
-                    }
-                    else if(uName[i]>='a' && uName[i]<='z')
-                    {
-                        lw++;
-                    }
-                    else if(uName[i]>='0' && uName[i]<='9')
-                    {
-                        dg++;
-                    }
-                    else if(uName[i]=='_')
-                    {
-                        un++;
-                    }
-                    else if(uName[i]=='.')
-                    {
-                        dot++;
-                    }
-                    else
-                    {
-                        sc++;
-                    }
-                }
-                if(up>=0 && lw>=0 && dg>=0 && un==2 && dot==0 && sc==0)
-                {
-                    cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    cout << "Valid UserName ..." << endl;
-                    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                }	
-                else
-                {
-                    cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    cout << "Invalid UserName..." << endl;
-                    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                }
-
-                if(lw>0 && up>0 && dot==0 && sc==0 && strlen(pass)>=8);
-                {
-                    cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    cout << "Confirm Username : " << uName << endl;
-                    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    cout << endl <<"Enter Your Password : ";
-                    cin >> pass;
-
-                    len = strlen(pass);
-
-                    if(lw>=0 && up>=0 && dot==0 && sc==0 && strlen(pass)>=8)
-                    {
-                        cout << "Confirm Your Password : ";
-                        cin >> cp;
-                        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                        strlwr(pass);
-                        strlwr(cp);
-
-                        n = strcmp(pass,cp);
-
-                        if(n==0)
-                        {
-                            cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                            cout << "You Have a Login Sucessfull.." << endl;
-                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                        }
-                        else
-                        {
-                            cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                            cout << "Your Password is Incorrect.." << endl;
-                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                        }
-                    }
-                    else
-                    {
-                        cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                        cout << "Incorrect Password.." << endl;
-                        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-                    }
-                }
-            }
-
-            void setData()
-            {
-                cout << endl << "Enter Item Number : ";
-                cin >> item_number;
-                cout << "Enter Item Name : ";
-                cin >> item_name;
-                cout << "Enter Item Quantity : ";
-                cin >> quantity;
-                cout << "Enter Item Tax : ";
-                cin >> tax;
-                cout << "Enter Item Discount: ";
-                cin >> discount;
-            }	
-
-            void getData()
-            {
-                cout << endl << "I_no.\t : " << item_number << endl
-                            << "I_name\t : " << item_name << endl
-                            << "I_Quan\t : " << quantity << endl
-                            << "I_tax\t : " << tax << endl
-                            << "I_dis\t : " << discount << endl ;
-            }
-
-            static void header()
-            {
-                cout << endl << "I_no\tI_name\tI_Quan\tI_tax\tI_dis\n======= ======= ======= ======= =======\n";
-            }
-
-            void getDataInTable()
-            {
-                cout << item_number << "\t" << item_name << "\t" << quantity << "\t" << tax << "\t" << discount << endl;
-            }
-
-
-    };
-
-    int main()
-    {
-
-        int n,i,j;
-
-        bill b1[50];
-        b1[0].password();
-
-        cout << endl << "Enter Number of Bill : ";
-        cin >> n;
-
-        for(int i=0 ; i<n ; i++)
+class railWay{
+    private:
+        int Train_Number;
+        string Train_Name;
+        string Source;
+        string Destination;
+        int Train_Time;
+    public:
+        void setData()
         {
-            b1[i].setData();
+            cout << "Enter Train Number : ";
+            cin >> Train_Number;
+            cout << "Enter Train Name : ";
+            cin >> Train_Name;
+            cout << "Enter Train Source : ";
+            cin >> Source;
+            cout << "Enter Train Destination : ";
+            cin >> Destination;
+            cout << "Enter Train Time : ";
+            cin >> Train_Time;
         }
-
-        bill temp; 
-        for(i=0 ; i<n ; i++)
+        
+        void getData()
         {
-            for(j=i+1 ; j<n ; j++)
+            cout << endl << "T_Number\t : " << Train_Number << endl
+                        << "T_Name\t : " << Train_Name << endl
+                        << "T_Source\t : " << Source << endl
+                        << "T_Destination\t : " << Destination << endl
+                        << "T_Time\t : " << Train_Time << endl;
+        }
+            
+        void display()
+        {
+            if(Train_Number<=1000 || Train_Number<=2000 || Train_Number<=3000)
             {
-                if(b1[i].item_number > b1[j].item_number)
-                {
-                    temp = b1[i];
-                    b1[i] = b1[j];
-                    b1[j] = temp;
-                }
+                cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                cout << Train_Name << " train is available... " << endl;
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
             }
-        }
-
-
-
-        bill::header();
-
-        for(int i=0 ; i<n ; i++)
+            else
+            {
+                cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                cout << Train_Name << " train is Come in " << 12-Train_Time<< " o'clock at platform..." << endl;
+                cout <<  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            }
+        }	
+        static void header()
         {
-            b1[i].getDataInTable();
+            system("cls");
+            cout << "T_No.\tT_Name\tT_Sour\tT_Desti\tT_Time\n======= ======= ======= ======= =======\n";
         }
+        
+        void getDataInTable()
+        {
+            cout << Train_Number << "\t" << Train_Name << "\t" << Source << "\t" << Destination << "\t" << Train_Time << endl;
+        }
+};
 
-    }
+int main()
+{
+    railWay r1,r2,r3;
+    
+    r1.setData();
+    r2.setData();
+    r3.setData();
+    
+    railWay::header();
+    
+    r1.getDataInTable();
+    r2.getDataInTable();
+    r3.getDataInTable();
+    
+    r1.display();
+    r2.display();
+    r3.display();
+}
