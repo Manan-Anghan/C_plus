@@ -20,7 +20,7 @@ public:
 
 int main() {
 
-    GroceryItem a[25] = {
+    GroceryItem a[10] = {
         
         {1, "Bread", 224.17, "unit"},
         {2, "Milk", 258.54, "gallon"},
@@ -35,7 +35,7 @@ int main() {
         
     };
 
-    for (int i = 0; i < 25; i++) {
+    for (int i = 1; i <= 10; i++) {
         cout << "Item " << i+1 << ": " << a[i].i_Name << ", " << a[i].i_Price << " rupees per " << a[i].i_Unit << endl;
     }
 
