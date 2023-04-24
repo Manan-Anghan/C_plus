@@ -1,140 +1,185 @@
 #include <iostream>
 using namespace std;
 
-class Bank {
-    private:
-    	char dummy, pick ;
-    	int s_ID,s_phone ;
-    	string s_name,s_email;
-        float balance=0;
-    public:
-    	
-    	Banner(){
-			cout<< "\t\t:- Bank Managment System -: "<< endl;
-			cout<<"------------------------------------------------------------ "<< endl ;
-			cout<<endl;
-			cout<< "\t\t:- Design And Program by -: "<< endl;
-			cout<<"------------------------------------------------------------ "<< endl;
-			cout<<"\t\t\t  Manan Anghan " <<endl;
-			cout<<endl;
-			cout<< "\t\t        :- Trainer -:       "<< endl;
-			cout<<"------------------------------------------------------------ "<< endl;
-			cout<<"\t\t\tSimran Ma'am          "<<endl;
-			cout<<endl;
-			cout<<endl;
-			cout<< "press any key to go to next page : "; cin>>dummy;
-			system("cls");
-		}
-		
-		Staff(){
-			rep : 
-			cout<<"------------------------------------------------------------ "<< endl;
-			cout<<" :- Press A to login as administrator or B to login as staff"<<endl;
-			cout<<"------------------------------------------------------------ "<< endl;
-			cout<<endl;
-			cout<< "press a key to go to next page : "; cin>>pick;
-			
-			if(pick=='A' || pick=='a')
-			{
-				cout<<"\n------------------------------------------------------------" ;
-				cout<<"\nWelcome to administration panel : ";
-				cout<<"\n------------------------------------------------------------" ;
-				cout<< endl;
-				cout<< "\tEnter The Name Of Staff Member :" ; cin>>s_name ;
-				cout<< "\tEnter The ID of Staff Member :" ; cin>>s_ID ;
-				cout<< "\tEnter The Phone Number Of Staff Member :" ; cin>>s_phone ;
-				cout<< "\tEnter The Email Address of Staff Member :"; cin>>s_email ;
-				
-				cout<<"\nSuccessfully Registered! : \n";
-				cout<<"------------------------------------------------------------"<<endl ;
-				cout<< "\n\t Name \t\t:" <<s_name;
-				cout<< "\n\t Amount Number\t:"<<s_ID;
-				cout<< "\n\t Phone Number \t:"<<s_phone;
-				cout<< "\n\t Email \t\t:"<<s_email;
-				cout<<"\n------------------------------------------------------------"<<endl ;
-			}
-			
-			else if(pick=='B' || pick=='b')
-			{
-				cout<<"\n------------------------------------------------------------" ;
-				cout<<"\nWelcome to staff panel : ";
-				cout<<"\n------------------------------------------------------------" ;
-				cout<< endl;
-				cout<< "\tEnter The Name Of Staff Member :" ; cin>>s_name ;
-				cout<< "\tEnter The ID of Staff Member :" ; cin>>s_ID ;
-				cout<< "\tEnter The Phone Number Of Staff Member :" ; cin>>s_phone ;
-				cout<< "\tEnter The Email Address of Staff Member :"; cin>>s_email ;
-				
-				cout<<"\nSuccessfully Registered! : \n";
-				cout<<"------------------------------------------------------------"<<endl ;
-				cout<< "\n\t Name \t\t:" <<s_name;
-				cout<< "\n\t Amount Number\t:"<<s_ID;
-				cout<< "\n\t Phone Number \t:"<<s_phone;
-				cout<< "\n\t Email \t\t:"<<s_email;
-				cout<<"\n------------------------------------------------------------"<<endl ;
-			}
-			else 
-			{
-				cout<<"\nInvalid Input!\n\n";
-				goto rep;
-			}
-			
-		}
-        void deposit(float amount) {
-            balance += amount;
-            cout << amount << " INR deposited successfully!" << endl;
-        }
-        void withdraw(float amount) {
-            if (amount > balance) {
-                cout << "Insufficient balance. Withdrawal failed." << endl;
-            } else {
-                balance -= amount;
-                cout << amount << " INR withdrawn successfully!" << endl;
-            }
-        }
-        void display() {
-            cout << "Your current balance is " << balance <<"INR"<<  endl;
-        }
-};
-
-int main() {
-    Bank customer;
+class bank
+{
+public:
+    string name;
+    string email;
+    long long int ac_no;
+    long long int contect_no;
+    char ch;
+    int type;
     int choice;
-    float amount;
+    long def = 20000;
+    long dep;
+    long with;
+    void task1()
+    {
+        cout << endl << endl << "\t\t\t\t\t -: BANK MANAGEMENY SYSTEM :-" << endl;
+        cout << "------------------------------------------------------------------------------------------------------------------------";
 
-	customer.Banner();
-	customer.Staff();
-	
-    while (true) {
-        cout << "\n\nPlease select an option:" << endl;
-        cout << "1. Deposit" << endl;
-        cout << "2. Withdraw" << endl;
-        cout << "3. Check Balance" << endl;
-        cout << "4. Exit" << endl;
-        cout << "\n Option : ";
-        cin >> choice;
+        cout << endl << endl << "\t\t\t\t\t -: Program Designed By :-" << endl;
+        cout << "------------------------------------------------------------------------------------------------------------------------";
+        cout << endl << endl << "\t\t\t\t\t -:     Bonika Desai   :-" << endl;
 
-        switch(choice) {
-            case 1:
-                cout << "\nEnter deposit amount in INR: ";
-                cin >> amount;
-                customer.deposit(amount);
-                break;
-            case 2:
-                cout << "\nEnter withdrawal amount ";
-                cin >> amount;
-                customer.withdraw(amount);
-                break;
-            case 3:
-                customer.display();
-                break;
-            case 4:
-                cout << "\nThank you for using the Bank System!" << endl;
-                exit(0);
-            default:
-                cout << "Invalid choice. Please try again." << endl;
+        cout << endl << endl << "\t\t\t\t\t -:        Trainer        :-" << endl;
+        cout << "------------------------------------------------------------------------------------------------------------------------";
+        cout << endl << "\t\t\t\t\t -:     Jaysir Gondaliya    :-" << endl;
+
+        cout << endl << endl << "\t\t\t\t      Press Any Key And Enter To Continue... " << endl;
+
+        cin >> ch;
+
+        if (ch >= 97 && ch <= 122 || ch >= 65 && ch <= 90 || ch >= 9 && ch <= 96 || ch >= 123 && ch <= 126)
+        {
+            system("cls");
+            
+            cout << "----------------------------------------------------------------------------------------------------------" << endl << endl;
+            cout << "\t\t-: Press A to log in as Administrator Or S to log in as STAFF :-" << endl << endl;
+            cout << "----------------------------------------------------------------------------------------------------------" << endl;
+            task2();
         }
     }
 
-    return 0;
+    void task2()
+    {
+        cin >> type;
+
+        switch(type)
+        {
+        case 10:
+            system("cls");
+            cout << endl << "----------------------------------------------------------------------------------------------------------";
+            cout << endl << "\t\t\t\t -: Welcome as a ADMINISTRATOR :-" << endl;
+            cout << endl << "----------------------------------------------------------------------------------------------------------";
+            task3A();
+            task4();
+            task5();
+            break;
+
+        case 15:
+            system("cls");
+            cout << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << endl << "\t\t\t\t -: Welcome as a STAFF :-" << endl;
+            cout << endl << "----------------------------------------------------------------------------------------------------------";
+            task3S();
+            task4();
+            task5();
+            break;
+
+        }
+    }
+
+    void task3A()
+    {
+        
+        cout << endl << endl << "Enter The Name Of Administrator\t : ";
+        cin >> name;
+        cout << "Enter The Account Number Of Administrator\t : ";
+        cin >> ac_no;
+        cout << "Enter The Phone Number Of Administrator\t   : ";
+        cin >> contect_no;
+        cout << "Enter The Email  Of Administrator\t  : ";
+        cin >> email;
+        cout << endl << endl;
+    }
+
+    void task3S()
+    {
+        
+        cout << endl << endl << "\t\t\tEnter The Name Of Staff\t\t\t : ";
+        cin >> name;
+        cout << "\t\t\tEnter The Account Number Of Staff\t : ";
+        cin >> ac_no;
+        cout << "\t\t\tEnter The Phone Number Of Staff\t\t : ";
+        cin >> contect_no;
+        cout << "\t\t\tEnter The Email  Of Staff\t\t : ";
+        cin >> email;
+        cout << endl << endl;
+    }
+
+    void task4()
+    {
+        system("cls");
+        cout << endl << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+        cout << "Name\t\t : " << name << endl;
+        cout << "Account No\t : " << ac_no << endl;
+        cout << "Phone No\t : " << contect_no << endl;
+        cout << "Email\t\t : " << email << endl;
+        cout << "----------------------------------------------------------------------------------------------------------" << endl;
+    }
+
+    void task5()
+    {
+        cout << "\t\t\tPress [1] To Deposite Money : " << endl;
+        cout << "\t\t\tPress [2] To Transfer Money : " << endl;
+        cout << "\t\t\tPress [3] To Withdraw Money : " << endl;
+
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            
+            cout << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tEnter Deposite Value    : ";
+            cin  >> dep;
+            cout << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tYour Actual Ammount is  : " << def << endl;
+            cout << "\t\t\tYour Account Balance is : " << def + dep << endl;
+            break;
+
+        case 2:
+            
+            cout << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tEnter Transfer Value    : ";
+            cin  >> with;
+            cout << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tYour Actual Balance is  : " << def << endl;
+
+            if (with <= 200000)
+            {
+                cout << "\t\t\tYour Account Balance is : "<< with - def << endl;
+            }
+            else
+            {
+                cout << "\t\t\tYou Can't Enter Money More Than Account Balance !!";
+            }
+            break;
+
+        case 3:
+            system("cls");
+            cout << endl << "----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tEnter Withdraw Value    : ";
+            cin  >> with;
+            cout << "\n----------------------------------------------------------------------------------------------------------" << endl;
+            cout << "\t\t\tYour Actual Balance is  : " << def << endl << endl;
+
+            if (with <= 200000)
+            {
+                cout << "\t\t\tCongrates Your Amount has Withdraw Successfully.." << endl << endl;
+                cout << "\t\t\tYour Account Balance is : " << with - def  << endl << endl;
+            }
+            else
+            {
+                cout << "\t\t\tYou Cant Enter Money More Than Account Balance !!";
+            }
+            break;
+            
+            default :
+            cout << "\t\t\tPlease Enter Valid Input ";
+        }
+    }
+};
+
+int main()
+{
+    bank b1;
+    b1.task1();
+    b1.task2();
+    b1.task3A();
+    b1.task3S();
+    b1.task4();
+    b1.task5();
 }
