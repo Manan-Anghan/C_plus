@@ -22,16 +22,16 @@ int main() {
 
     GroceryItem a[10] = {
         
-        {1, "Bread", 224.17, "unit"},
-        {2, "Milk", 258.54, "gallon"},
-        {3, "Bananas", 35.83, "kg"},
-		{4, "Eggs", 214.05, "dozen"},
-        {5, "Apples", 72.68, "kg"},
-  		{6, "Cheese", 373.50, "kg"},
-        {7, "Yogurt", 298.02, "liter"},
-        {8, "Carrots", 72.68, "kg"},
-        {9, "Tomatoes", 107.04, "kg"},
-        {10, "Broccoli", 143.64, "kg"},
+        {1, "Bread", 1000, "unit"},
+        {2, "Milk", 1000, "gallon"},
+        {3, "Bananas", 1000, "kg"},
+		{4, "Eggs", 1000, "dozen"},
+        {5, "Apples", 1000, "kg"},
+  		{6, "Cheese", 1000, "kg"},
+        {7, "Yogurt", 1000, "liter"},
+        {8, "Carrots", 1000, "kg"},
+        {9, "Tomatoes", 1000, "kg"},
+        {10, "Broccoli", 1000, "kg"},
         
     };
 
